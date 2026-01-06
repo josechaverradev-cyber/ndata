@@ -21,7 +21,10 @@ from typing import Optional, List, Dict, Any
 from sqlalchemy import func, and_
 
 # Configuración de Base de Datos (MySQL)
-DATABASE_URL = os.getenv("DATABASE_URL", "mysql+pymysql://u659323332_ndata:Nd@ta123@82.197.82.29/u659323332_ndata")
+DATABASE_URL = os.getenv(
+    "DATABASE_URL", 
+    "mysql+pymysql://u659323332_ndata:Nd@ta123@82.197.82.29/u659323332_ndata"
+)
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
