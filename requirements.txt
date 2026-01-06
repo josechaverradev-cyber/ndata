@@ -7,7 +7,7 @@ python-multipart
 
 # Base de Datos (MySQL)
 sqlalchemy
-pymysql
+psycopg2-binary==2.9.9
 cryptography
 
 # Seguridad y Autenticación
@@ -26,4 +26,5 @@ gradio
 
 # Otras dependencias detectadas en tu código
 typing-extensions
+
 
