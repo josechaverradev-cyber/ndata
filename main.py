@@ -22,8 +22,8 @@ from sqlalchemy import func, and_
 
 # Configuración de Base de Datos (MySQL)
 DATABASE_URL = os.getenv(
-    "DATABASE_URL", 
-    "mysql+pymysql://u659323332_ndata:Nd%40ta123@82.197.82.29/u659323332_ndata"
+    "DATABASE_URL",
+    "postgresql://ndata_q8c8_user:zDdY8RBROuvFh8QbjZmxTkyU3To6gTaK@dpg-xxxxx-a/ndata_q8c8"
 )
 
 engine = create_engine(DATABASE_URL)
