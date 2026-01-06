@@ -23,7 +23,7 @@ from sqlalchemy import func, and_
 # Configuración de Base de Datos (MySQL)
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
-    "postgresql://ndata_q8c8_user:zDdY8RBROuvFh8QbjZmxTkyU3To6gTaK@dpg-xxxxx-a/ndata_q8c8"
+    "postgresql://ndata_q8c8_user:zDdY8RBROuvFh8QbjZmxTkyU3To6gTaK@dpg-d5emvu5actks7387qlbg-a/ndata_q8c8"
 )
 
 engine = create_engine(DATABASE_URL)
