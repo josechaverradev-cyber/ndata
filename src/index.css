@@ -1,0 +1,186 @@
+/* Arial Rounded MT Bold - System font */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 62% 96%;
+    --foreground: 30 15% 20%;
+
+    --card: 30 62% 98%;
+    --card-foreground: 30 15% 20%;
+
+    --popover: 30 62% 98%;
+    --popover-foreground: 30 15% 20%;
+
+    --primary: 102 12% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 32 72% 78%;
+    --secondary-foreground: 30 25% 25%;
+
+    --muted: 30 40% 92%;
+    --muted-foreground: 30 15% 45%;
+
+    --accent: 37 46% 68%;
+    --accent-foreground: 30 25% 20%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 30% 85%;
+    --input: 30 30% 85%;
+    --ring: 102 12% 55%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --success: 102 12% 55%;
+    --success-foreground: 0 0% 100%;
+    --warning: 37 46% 68%;
+    --warning-foreground: 30 25% 20%;
+    --info: 200 60% 50%;
+    --info-foreground: 0 0% 100%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(102, 12%, 55%) 0%, hsl(102, 15%, 60%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(37, 46%, 68%) 0%, hsl(32, 72%, 78%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(30, 62%, 98%) 0%, hsl(30, 62%, 94%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(30 15% 20% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(30 15% 20% / 0.08), 0 2px 4px -2px hsl(30 15% 20% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsl(30 15% 20% / 0.08), 0 4px 6px -4px hsl(30 15% 20% / 0.05);
+    --shadow-glow: 0 0 20px hsl(102 12% 55% / 0.2);
+
+    --sidebar-background: 30 62% 98%;
+    --sidebar-foreground: 30 15% 35%;
+    --sidebar-primary: 102 12% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 32 72% 88%;
+    --sidebar-accent-foreground: 30 25% 25%;
+    --sidebar-border: 30 30% 88%;
+    --sidebar-ring: 102 12% 55%;
+  }
+
+  .dark {
+    --background: 35 15% 12%;
+    --foreground: 32 50% 92%;
+
+    --card: 35 12% 16%;
+    --card-foreground: 32 50% 92%;
+
+    --popover: 35 12% 16%;
+    --popover-foreground: 32 50% 92%;
+
+    --primary: 102 18% 65%;
+    --primary-foreground: 35 15% 12%;
+
+    --secondary: 32 35% 28%;
+    --secondary-foreground: 32 60% 85%;
+
+    --muted: 35 12% 22%;
+    --muted-foreground: 32 25% 65%;
+
+    --accent: 37 50% 60%;
+    --accent-foreground: 35 15% 12%;
+
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 12% 25%;
+    --input: 35 12% 25%;
+    --ring: 102 18% 65%;
+
+    --sidebar-background: 35 12% 14%;
+    --sidebar-foreground: 32 30% 75%;
+    --sidebar-primary: 102 18% 65%;
+    --sidebar-primary-foreground: 35 15% 12%;
+    --sidebar-accent: 32 30% 25%;
+    --sidebar-accent-foreground: 32 50% 85%;
+    --sidebar-border: 35 12% 22%;
+    --sidebar-ring: 102 18% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', 'Arial', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', 'Arial', sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-card-hover {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

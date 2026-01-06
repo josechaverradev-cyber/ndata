@@ -1,0 +1,94 @@
+import {
+  LayoutDashboard,
+  Apple,
+  Calendar,
+  MessageSquare,
+  Settings,
+  LogOut,
+  TrendingUp,
+  User,
+  Utensils
+} from "lucide-react";
+import { NavLink } from "@/components/NavLink";
+import { useNavigate } from "react-router-dom";
+import { cn } from "@/lib/utils";
+
+const menuItems = [
+  { icon: LayoutDashboard, label: "Mi Dashboard", path: "/patient" },
+  { icon: Apple, label: "Mi Plan Nutricional", path: "/patient/my-plan" },
+  { icon: Utensils, label: "Mis Comidas", path: "/patient/meals" },
+  { icon: TrendingUp, label: "Mi Progreso", path: "/patient/progress" },
+  { icon: Calendar, label: "Mis Citas", path: "/patient/appointments" },
+  { icon: MessageSquare, label: "Mensajes", path: "/patient/messages" },
+];
+
+const bottomMenuItems = [
+  { icon: User, label: "Mi Perfil", path: "/patient/profile" },
+  { icon: Settings, label: "Configuración", path: "/patient/settings" },
+];
+
+export function PatientSidebarContent() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate("/auth");
+  };
+
+  return (
+    <div className="flex h-full flex-col bg-sidebar">
+      {/* Logo */}
+      <div className="flex h-16 items-center gap-3 border-b border-sidebar-border px-6">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl gradient-primary shadow-glow">
+          <Apple className="h-5 w-5 text-primary-foreground" />
+        </div>
+        <div>
+          <h1 className="text-lg font-semibold text-foreground">NutriData</h1>
+          <p className="text-xs text-muted-foreground">Panel del Paciente</p>
+        </div>
+      </div>
+
+      {/* Navigation */}
+      <nav className="flex-1 space-y-1 px-3 py-4">
+        {menuItems.map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            className={cn(
+              "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
+              "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+            )}
+            activeClassName="bg-primary/10 text-primary shadow-sm"
+          >
+            <item.icon className="h-5 w-5" />
+            {item.label}
+          </NavLink>
+        ))}
+      </nav>
+
+      {/* Bottom section */}
+      <div className="border-t border-sidebar-border p-3">
+        {bottomMenuItems.map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            className={cn(
+              "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200",
+              "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+            )}
+            activeClassName="bg-primary/10 text-primary"
+          >
+            <item.icon className="h-5 w-5" />
+            {item.label}
+          </NavLink>
+        ))}
+        <button
+          onClick={handleLogout}
+          className="mt-2 flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-destructive transition-all duration-200 hover:bg-destructive/10"
+        >
+          <LogOut className="h-5 w-5" />
+          Cerrar Sesión
+        </button>
+      </div>
+    </div>
+  );
+}
