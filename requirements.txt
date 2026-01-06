@@ -1,3 +1,5 @@
+gunicorn
+
 # Servidor Web y API
 fastapi
 uvicorn[standard]
@@ -24,3 +26,4 @@ gradio
 
 # Otras dependencias detectadas en tu código
 typing-extensions
+
